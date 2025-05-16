@@ -36,7 +36,7 @@
 
             <!--Content Mid-->
             <Grid Grid.Column="1">
-                
+                <views:ContentMid/>
             </Grid>
             
             <!--Content Right-->

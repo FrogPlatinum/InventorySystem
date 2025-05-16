@@ -6,12 +6,18 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using InventorySystem.Interfaces;
+using InventorySystem.Models;
 
 namespace InventorySystem.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<string> Items { get; set; }
+        public ObservableCollection<Item> AllItems { get; set; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> FilteredItems { get; set; } = new ObservableCollection<Item>();
+
+        private readonly IItemRepo _itemRepo;
 
         private string _selectedItem;
         public string SelectedItem
@@ -21,13 +27,36 @@ namespace InventorySystem.ViewModels
             {
                 _selectedItem = value;
                 OnPropertyChanged();
+                FilterItems();
             }
         }
 
-        public MainViewModel()
+        //Dont understand this (inside ctor, and parameter ctor)
+        public MainViewModel(IItemRepo itemRepo)
         {
+            _itemRepo = itemRepo;
+
             Items = new ObservableCollection<string> { "All", "Books", "Live Equipment", "Board Games" };
             SelectedItem = "All";
+
+            AllItems = new ObservableCollection<Item>(_itemRepo.GetAll());
+            FilteredItems = new ObservableCollection<Item>();
+
+            FilterItems();
+        }
+
+        //Dont understand this
+        private void FilterItems()
+        {
+            FilteredItems.Clear();
+
+            foreach (Item item in AllItems)
+            {
+                if(SelectedItem == "All" ||  SelectedItem == "Books" && item is Book || SelectedItem == "Live Equipment" && item is LiveEquipment || SelectedItem == "Board Games" && item is BoardGame)
+                {
+                    FilteredItems.Add(item);
+                }
+            }
         }
 
         //Update UI on property changes

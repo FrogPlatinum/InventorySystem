@@ -12,8 +12,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Background="AliceBlue" Grid.Column="0" Width="150" Height="40" HorizontalAlignment="Right" Content="Add"/>
-        <Button Background="Azure" Grid.Column="1" Width="150" Height="40" HorizontalAlignment="Center" Content="Edit"/>
-        <Button Background="BlueViolet" Grid.Column="2" Width="150" Height="40" HorizontalAlignment="Left" Content="Delete"/>
+        <Button Grid.Column="0" Width="150" Height="40" HorizontalAlignment="Right" Content="Add"/>
+        <Button Grid.Column="1" Width="150" Height="40" HorizontalAlignment="Center" Content="Edit"/>
+        <Button Grid.Column="2" Width="150" Height="40" HorizontalAlignment="Left" Content="Delete"/>
     </Grid>
 </UserControl>
