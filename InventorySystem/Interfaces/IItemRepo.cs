@@ -12,7 +12,8 @@ namespace InventorySystem.Interfaces
         public void Add(Item item);
         public IEnumerable<Item> GetAll();
         public Item GetById(string id);
-        public void Update(Item item);
-        public void Delete(string id);
+        public void Update(Item editItem);
+        public void Delete(Item item);
+        public List<Loan> GetLoanHistory(Item item);
     }
 }

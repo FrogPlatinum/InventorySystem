@@ -18,10 +18,17 @@ namespace InventorySystem.Models
             Accessories,
             Cutlery
         }
+        public TypeOfEquipment EquipmentType { get; set; }
         public string Owner { get; set; }
         public override ItemType Type
         {
             get { return ItemType.LiveEquipment; }
+        }
+        public LiveEquipment(string id, string name, Condition itemCondition, NeedsApproval needsApproval, StorageStatus inStorage, TypeOfEquipment equipmentType, string owner)
+            : base(id, name, itemCondition, needsApproval, inStorage)
+        {
+            EquipmentType = equipmentType;
+            Owner = owner;
         }
     }
 }

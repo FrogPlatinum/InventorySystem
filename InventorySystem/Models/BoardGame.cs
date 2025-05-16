@@ -15,5 +15,13 @@ namespace InventorySystem.Models
         {
             get { return ItemType.BoardGame; }
         }
+
+        public BoardGame(string id, string name, Condition itemCondition, NeedsApproval needsApproval, StorageStatus inStorage, string edition, int minPlayer, int maxPlayer) 
+            : base(id, name, itemCondition, needsApproval, inStorage)
+        {
+            Edition = edition;
+            MinPlayer = minPlayer;
+            MaxPlayer = maxPlayer;
+        }
     }
 }

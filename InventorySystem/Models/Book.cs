@@ -16,9 +16,12 @@ namespace InventorySystem.Models
             get { return ItemType.Book; }
         }
 
-        public Book(string id, string name, Condition condition, NeedsApproval approval, StorageStatus storage) : base(id, name, condition, approval, storage)
+        public Book(string id, string name, Condition condition, NeedsApproval approval, StorageStatus storage, string author, string edition, string system) 
+            : base(id, name, condition, approval, storage)
         {
-            
+            Author = author;
+            Edition = edition;
+            System = system;
         }
     }
 }

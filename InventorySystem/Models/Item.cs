@@ -41,7 +41,7 @@ namespace InventorySystem.Models
         public NeedsApproval ApprovalStatus { get; set; }
         public StorageStatus InStorage {  get; set; }
 
-        public List<Loan>? Loans { get; set; }
+        public List<Loan> Loans { get; set; } = new List<Loan>();
         public abstract ItemType Type { get; }
 
         public Item(string id, string name, Condition itemCondition, NeedsApproval needsApproval, StorageStatus inStorage)
